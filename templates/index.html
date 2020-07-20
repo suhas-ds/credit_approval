@@ -1,0 +1,94 @@
+<html>
+
+<head>
+<title>Credit Card Application Form</title>
+<!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../static/style.css') }}"> -->
+</head>
+ 
+	<body>
+	<h3 align="center">CREDIT CARD APPLICATION FORM</h3>
+
+		<form action="/predict" method="POST"> 
+			<table align="center" cellpadding = "10">
+ 
+				<!----- First Name ---------------------------------------------------------->
+				<tr>
+				<td>FIRST NAME</td>
+				<td><input type="text" name="First_Name" maxlength="30"/>
+				(max 30 characters a-z and A-Z)
+				</td>
+				</tr>
+				 
+				<!----- Last Name ---------------------------------------------------------->
+				<tr>
+				<td>LAST NAME</td>
+				<td><input type="text" name="Last_Name" maxlength="30"/>
+				(max 30 characters a-z and A-Z)
+				</td>
+				</tr>
+				  
+				<!----- Age---------------------------------------------------->
+				<tr>
+				<td>AGE</td>
+				<td><input type="text" name="Age" maxlength="100" /></td>
+				</tr>
+				 
+				<!----- Years Employed---------------------------------------------------->
+				<tr>
+				<td>PROFESSIONAL EXPRERIENCE</td>
+				<td><input type="text" name="Tot_Experience" maxlength="30" /></td>
+				</tr>
+
+				<!----- Income ---------------------------------------------------------->
+				<tr>
+				<td>INCOME</td>
+				<td><input type="text" name="Income" maxlength="30" />
+				</td>
+				</tr>
+
+				<!----- Credit Score ---------------------------------------------------------->
+				<tr>
+				<td>CREDIT SCORE</td>
+				<td><input type="text" name="Credit_Score" maxlength="30" />
+				</td>
+				</tr>
+
+				<!----- Total Debt ---------------------------------------------------------->
+				<tr>
+				<td>TOTAL DEBT</td>
+				<td>
+				<input type="text" name="Total_Debt" maxlength="10" />
+				</td>
+				</tr>
+
+				<!----- Prior Default ---------------------------------------------------------->
+
+				<tr>
+				<td>PRIOR DEFAULT</td>
+				 
+				<td>
+				<!---------
+				<select name="Default" id="Default">
+				<option value="-1">Select:</option>
+				<option value="1">Yes</option>
+				<option value="2">No</option>
+				</select>
+				----->
+				<input type="radio" name="Default" id="Default" value="1">Yes</input>
+				<input type="radio" name="Default" id="Default" value="0">No</input>
+
+				</td>
+				</tr>
+
+				<!----- Submit and Reset ------------------------------------------------->
+				<tr>
+				<td colspan="2" align="center">
+				<input type="submit" value="Submit">
+				<input type="reset" value="Reset">
+				</td>
+				</tr>
+			</table>
+ 
+		</form>
+	</body>
+</html>
