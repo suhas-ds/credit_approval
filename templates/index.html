@@ -2,12 +2,13 @@
 
 <head>
 <title>Credit Card Application Form</title>
-<!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../static/style.css') }}"> -->
+
+
 </head>
  
 	<body>
-	<h3 align="center">CREDIT CARD APPLICATION FORM</h3>
-
+	<h2 align="center">CREDIT CARD APPLICATION FORM</h2>
+	<br>
 		<form action="/predict" method="POST"> 
 			<table align="center" cellpadding = "10">
  
@@ -35,7 +36,7 @@
 				 
 				<!----- Years Employed---------------------------------------------------->
 				<tr>
-				<td>PROFESSIONAL EXPRERIENCE</td>
+				<td>WORK EXPRERIENCE</td>
 				<td><input type="text" name="Tot_Experience" maxlength="30" /></td>
 				</tr>
 
@@ -65,18 +66,9 @@
 
 				<tr>
 				<td>PRIOR DEFAULT</td>
-				 
 				<td>
-				<!---------
-				<select name="Default" id="Default">
-				<option value="-1">Select:</option>
-				<option value="1">Yes</option>
-				<option value="2">No</option>
-				</select>
-				----->
-				<input type="radio" name="Default" id="Default" value="1">Yes</input>
-				<input type="radio" name="Default" id="Default" value="0">No</input>
-
+				<input type="radio" name="Default" id="Default" value="1"> Yes </input>
+				<input type="radio" name="Default" id="Default" value="0"> No </input>
 				</td>
 				</tr>
 
@@ -84,11 +76,12 @@
 				<tr>
 				<td colspan="2" align="center">
 				<input type="submit" value="Submit">
-				<input type="reset" value="Reset">
+				<input type="reset" value="Reset" onclick="location.href='/';">
 				</td>
 				</tr>
 			</table>
- 
 		</form>
+
+<h3 align="center"> {{ prediction }} </h3>
 	</body>
 </html>
