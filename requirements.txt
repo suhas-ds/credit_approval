@@ -1,6 +1,6 @@
 pandas==0.23.0
 scikit-learn==0.19.1
-python3-sklearn
+sklearn
 flask==1.0.2
 numpy==1.17.3
 pickle-mixin==1.0.2
