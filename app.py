@@ -13,7 +13,7 @@ def home():
 @app.route('/predict',methods=['POST'])
 def predict():
 	
-    filename = 'model.pkl'
+    filename = 'trained_model/model.pkl'
     model = pickle.load(open(filename, 'rb'))
 
     if request.method == 'POST':

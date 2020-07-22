@@ -19,7 +19,7 @@ def imputeWithMode(df):
             df[col] = df[col].fillna(df[col].mode().iloc[0])
 
 def main():
-    credit_df = pd.read_csv('credit_approval_data.csv')
+    credit_df = pd.read_csv('data/credit_approval_data.csv')
 
     # Replace "?" with NaN
     credit_df.replace('?', np.NaN, inplace = True)
@@ -63,7 +63,7 @@ def main():
     y_pred = rf.predict(rescaledX_test)
     print(rf.score(rescaledX_test, Y_test))
 
-    filename = 'model.pkl'
+    filename = 'trained_model/model.pkl'
 
     pickle.dump(rf, open(filename, 'wb'))
 
