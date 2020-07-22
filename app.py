@@ -1,10 +1,6 @@
 from flask import Flask,render_template,url_for,request
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
-<<<<<<< HEAD
-=======
-
->>>>>>> d12f2cfc524559084d99c25c90a059561c311d47
 import numpy as np
 import pickle
 
