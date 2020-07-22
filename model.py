@@ -1,12 +1,12 @@
 # Importing Dependencies
 import numpy as np
 import pandas as pd
+import sklearn
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix
-#from sklearn.externals import joblib
 import pickle
 
 def imputeWithMode(df):
@@ -36,8 +36,6 @@ def main():
 
     credit_df=credit_df.drop(["ZipCode"],axis=1)
 
-    # credit_df['Approved'] = credit_df['Approved'].map({'+': 1, '-': 0})
-    # credit_df['PriorDefault'] = credit_df['PriorDefault'].map({'t': 0, 'f': 1})
     # Label Encoder
     LE = LabelEncoder()
     #Using label encoder to convert into numeric types
@@ -65,8 +63,12 @@ def main():
     y_pred = rf.predict(rescaledX_test)
     print(rf.score(rescaledX_test, Y_test))
 
-    pickle.dump(rf, open('model.pkl','wb'))
-    model = pickle.load(open('model.pkl','rb'))
+    filename = 'model.pkl'
+
+    pickle.dump(rf, open(filename, 'wb'))
+
+    model = pickle.load(open(filename, 'rb'))
+
     pred = [1,0,0,0.835,1,40.92]
 
     print(pred)

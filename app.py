@@ -1,10 +1,8 @@
 from flask import Flask,render_template,url_for,request
 import pandas as pd
-import pickle
 from sklearn.ensemble import RandomForestClassifier
-# from sklearn.externals import joblib
 import numpy as np
-
+import pickle
 
 app = Flask(__name__)
 
@@ -14,8 +12,9 @@ def home():
 
 @app.route('/predict',methods=['POST'])
 def predict():
-	# Loading of Saved Model
-    model = pickle.load(open("model.pkl", "rb"))
+	
+    filename = 'model.pkl'
+    model = pickle.load(open(filename, 'rb'))
 
     if request.method == 'POST':
 
@@ -60,16 +59,6 @@ def predict():
             status = "Your Credit Card Application has been Rejected"
 
         return render_template('index.html',prediction = status)
-
-    
-
-'''
-        if int(status) == 1:
-            return render_template('index.html',prediction = "Congratulations! Your Credit Card Application has been Approved!")
-        if int(status) == 0:
-            return render_template('index.html',prediction = "Your Credit Card Application has been Rejected")
-'''
-
 
 if __name__ == '__main__':
 	app.run(debug=True)
