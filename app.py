@@ -13,7 +13,7 @@ def home():
 @app.route('/predict',methods=['POST'])
 def predict():
 	
-    filename = 'trained_model/model.pkl'
+    filename = 'trained_model//model.pkl'
     model = pickle.load(open(filename, 'rb'))
 
     if request.method == 'POST':
@@ -59,6 +59,15 @@ def predict():
             status = "Your Credit Card Application has been Rejected"
 
         return render_template('index.html',prediction = status)
+
+@app.errorhandler(500)
+def internal_error(error):
+    return "500: Something went wrong"
+
+@app.errorhandler(404)
+def not_found(error):
+    return "404: Page not found",404
+
 
 if __name__ == '__main__':
 	app.run(debug=True)
