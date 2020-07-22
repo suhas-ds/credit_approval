@@ -1,5 +1,9 @@
 pandas==0.23.0
 scikit-learn==0.19.1
+<<<<<<< HEAD
+=======
+sklearn
+>>>>>>> d12f2cfc524559084d99c25c90a059561c311d47
 flask==1.0.2
 gunicorn==20.0.4
 scipy==1.1.0
