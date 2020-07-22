@@ -1,6 +1,6 @@
 from flask import Flask,render_template,url_for,request
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
 import numpy as np
 import pickle
 
@@ -13,7 +13,7 @@ def home():
 @app.route('/predict',methods=['POST'])
 def predict():
 	
-    filename = 'trained_model//model.pkl'
+    filename = 'trained_model/model.pkl'
     model = pickle.load(open(filename, 'rb'))
 
     if request.method == 'POST':

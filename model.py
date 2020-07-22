@@ -5,7 +5,7 @@ import sklearn
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix
 import pickle
 
@@ -58,13 +58,13 @@ def main():
     scaler = MinMaxScaler(feature_range=(0, 1))
     rescaledX_train = scaler.fit_transform(X_train)
     rescaledX_test = scaler.transform(X_test)
-    rf = RandomForestClassifier(n_estimators=500)
+    rf = LogisticRegression()
     rf.fit(rescaledX_train, y_train)
     y_pred = rf.predict(rescaledX_test)
     print(rf.score(rescaledX_test, Y_test))
 
     filename = 'trained_model/model.pkl'
-
+    
     pickle.dump(rf, open(filename, 'wb'))
 
     model = pickle.load(open(filename, 'rb'))
