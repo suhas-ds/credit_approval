@@ -54,9 +54,9 @@ def predict():
 
         
         if int(prediction_value) == 1:
-            status = "Congratulations! Your Credit Card Application has been Approved!"
+            status = "Congratulations! your credit card application has been Approved."
         if int(prediction_value) == 0:
-            status = "Your Credit Card Application has been Rejected"
+            status = "Your credit card application has been Rejected."
 
         return render_template('index.html',prediction = status)
 
