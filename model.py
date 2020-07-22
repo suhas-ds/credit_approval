@@ -7,18 +7,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix
+from sklearn.metrics import accuracy_score
 import pickle
 
-def imputeWithMode(df):
-    """
-    Going through each columns and checking the type is object
-    if it is object, impute it with most frequent value
-    """
-    for col in df:
-        if df[col].dtypes == 'object':
-            df[col] = df[col].fillna(df[col].mode().iloc[0])
-
 def main():
+
+    # Loading the data
     credit_df = pd.read_csv('data/credit_approval_data.csv')
 
     # Replace "?" with NaN
@@ -27,8 +21,8 @@ def main():
     # Convert Age to numeric
     credit_df["Age"] = pd.to_numeric(credit_df["Age"])
 
+    # NA Treatment
     credit_df.fillna(credit_df.mean(), inplace=True)
-
 
     for col in credit_df:
         if credit_df[col].dtypes == 'object':
@@ -43,6 +37,7 @@ def main():
         if credit_df[col].dtypes=='object':
             credit_df[col]=LE.fit_transform(credit_df[col])
 
+    # Selecting only important features got from RandomForest model 
     selected_feat = ['PriorDefault','YearsEmployed','CreditScore','Debt','Income','Age', 'Approved']
 
     credit_df1 = credit_df[selected_feat]
@@ -56,22 +51,26 @@ def main():
 
     # Scaling X_train and X_test
     scaler = MinMaxScaler(feature_range=(0, 1))
-    rescaledX_train = scaler.fit_transform(X_train)
-    rescaledX_test = scaler.transform(X_test)
+    scaled_X_train = scaler.fit_transform(X_train)
+    scaled_X_test = scaler.transform(X_test)
+
+    # Prediction model
     rf = RandomForestClassifier(n_estimators=500)
-    rf.fit(rescaledX_train, y_train)
-    y_pred = rf.predict(rescaledX_test)
-    print(rf.score(rescaledX_test, Y_test))
+    rf.fit(scaled_X_train, y_train)
+    y_pred = rf.predict(scaled_X_test)
+    print(rf.score(scaled_X_test, Y_test))
 
-    filename = 'trained_model/model.pkl'
-    
-    pickle.dump(rf, open(filename, 'wb'))
+    # Save Trained Model for reusibility
+    trained_model = 'trained_model/model.pkl'
 
-    model = pickle.load(open(filename, 'rb'))
+    pickle.dump(rf, open(trained_model, 'wb'))
 
+    model = pickle.load(open(trained_model, 'rb'))
+
+    # Making prediction on saved model
     pred = [1,0,0,0.835,1,40.92]
 
-    print(pred)
+    # print(pred)
     print(model.predict([pred]))
 
 
