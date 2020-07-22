@@ -1,0 +1,85 @@
+<html>
+
+<head>
+<title>CC Application Form</title>
+
+
+</head>
+ 
+	<body>
+	<h2 align="center">CREDIT CARD APPLICATION FORM</h2>
+	<br>
+		<form action="/predict" method="POST"> 
+			<table align="center" cellpadding = "10">
+ 
+				<!----- First Name ---------------------------------------------------------->
+				<tr>
+				<td>FIRST NAME</td>
+				<td><input type="text" name="First_Name" maxlength="30" placeholder="characters a-z A-Z"/>
+				</td>
+				</tr>
+				 
+				<!----- Last Name ---------------------------------------------------------->
+				<tr>
+				<td>LAST NAME</td>
+				<td><input type="text" name="Last_Name" maxlength="30" placeholder="characters a-z A-Z" />
+				</td>
+				</tr>
+				  
+				<!----- Age---------------------------------------------------->
+				<tr>
+				<td>AGE</td>
+				<td><input type="text" name="Age" maxlength="100" placeholder="In years" /></td>
+				</tr>
+				 
+				<!----- Years Employed---------------------------------------------------->
+				<tr>
+				<td>WORK EXPRERIENCE</td>
+				<td><input type="text" name="Tot_Experience" maxlength="30" placeholder="In years" /></td>
+				</tr>
+
+				<!----- Income ---------------------------------------------------------->
+				<tr>
+				<td>INCOME</td>
+				<td><input type="text" name="Income" maxlength="30" placeholder="$(thousands)" />
+				</td>
+				</tr>
+
+				<!----- Credit Score ---------------------------------------------------------->
+				<tr>
+				<td>CREDIT SCORE</td>
+				<td><input type="text" name="Credit_Score" maxlength="30" placeholder="0-100" />
+				</td>
+				</tr>
+
+				<!----- Total Debt ---------------------------------------------------------->
+				<tr>
+				<td>TOTAL DEBT</td>
+				<td>
+				<input type="text" name="Total_Debt" maxlength="10" placeholder="$(thousands)" />
+				</td>
+				</tr>
+
+				<!----- Prior Default ---------------------------------------------------------->
+
+				<tr>
+				<td>PRIOR DEFAULT</td>
+				<td>
+				<input type="radio" name="Default" id="Default" value="1"> Yes </input>
+				<input type="radio" name="Default" id="Default" value="0"> No </input>
+				</td>
+				</tr>
+
+				<!----- Submit and Reset ------------------------------------------------->
+				<tr>
+				<td colspan="2" align="center">
+				<input type="submit" value="Submit">
+				<input type="reset" value="Reset" onclick="location.href='/';">
+				</td>
+				</tr>
+			</table>
+		</form>
+
+<h3 align="center"> {{ prediction }} </h3>
+	</body>
+</html>
