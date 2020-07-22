@@ -58,7 +58,7 @@ def main():
     scaler = MinMaxScaler(feature_range=(0, 1))
     rescaledX_train = scaler.fit_transform(X_train)
     rescaledX_test = scaler.transform(X_test)
-    rf = LogisticRegression()
+    rf = RandomForestClassifier(n_estimators=500)
     rf.fit(rescaledX_train, y_train)
     y_pred = rf.predict(rescaledX_test)
     print(rf.score(rescaledX_test, Y_test))
