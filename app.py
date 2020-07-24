@@ -7,15 +7,16 @@ import pickle
 
 app = Flask(__name__)
 
+# Loading Trained Model 
+trained_model = 'trained_model/model.pkl'
+model = pickle.load(open(trained_model, 'rb'))
+
 @app.route('/')
 def home():
     return render_template('index.html')
 
 @app.route('/predict',methods=['POST'])
 def predict():
-	# Loading Trained Model 
-    trained_model = 'trained_model/model.pkl'
-    model = pickle.load(open(trained_model, 'rb'))
 
     if request.method == 'POST':
 
