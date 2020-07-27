@@ -14,11 +14,10 @@ credit_approval
 │   ├── index.html
 │   └── result.html
 ├── test.py
-├── trained_model
-│   └── model.pkl
-└── venv
-    ├── bin
-    ├── lib
-    └── pyvenv.cfg
+└── trained_model
+    └── model.pkl
 
-6 directories, 13 files
+3 directories, 12 files
+
+## This repository is succesfully integrated with Heroku master branch
+## Heroku App is accessible at https://credit-approval-staging.herokuapp.com 
