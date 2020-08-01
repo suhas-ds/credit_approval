@@ -4,12 +4,15 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 import numpy as np
 import pickle
+import os
 
 app = Flask(__name__)
+port = int(os.environ.get("PORT", 5000))
 
 # Loading Trained Model 
 trained_model = 'trained_model/model.pkl'
 model = pickle.load(open(trained_model, 'rb'))
+
 
 @app.route('/')
 def home():
@@ -71,4 +74,4 @@ def not_found(error):
 
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	app.run(debug=True, host='0.0.0.0', port=port)
