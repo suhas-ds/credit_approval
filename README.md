@@ -1,5 +1,7 @@
 # Credit Approval Model
 
+![Heroku](https://heroku-badges.herokuapp.com/?app=credit-approval-staging)
+
 ```bash
 credit_approval
 ├── app.py
